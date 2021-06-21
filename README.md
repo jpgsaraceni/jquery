@@ -1,0 +1,1 @@
+# Exercícios inicias da biblioteca jQuery no Alpha EdTech (04/05/2021 a 12/05/2021).

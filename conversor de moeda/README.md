@@ -1,0 +1,1 @@
+Conversor de moedas pela última cotação (utilizando uma api pública). Projeto com interface mínima sem estilização (css).

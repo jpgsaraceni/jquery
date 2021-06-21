@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: #22F2B7;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 22.5pt;
+}
+
+body{
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+}
+
+#calculadora{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    padding: 10px;
+    width: 300px;
+    background-color: #F2F2F2;
+    /* box-shadow: 0 0 10px #F2F2F2; */
+    border-radius: 2px;
+}
+
+#teclas{
+    display: flex;
+}
+
+.displayDigit{
+    font-size: 26pt;
+    padding-left: 3px;
+}
+
+#display-digit0{
+    padding-right: 3px;
+}
+
+#linha{
+    display: flex;
+}
+
+#secaoOperadores, #secaoFinalizar{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+}
+
+#secaoNumeros{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+.linha{
+    display: flex;
+}
+
+#display{
+    width: auto;
+    height: 50px;
+    background-color: #636363;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Orbitron', monospace;
+}
+
+button{
+    border: solid;
+    border-width: 1px;
+    width: 2em;
+    height: 2em;
+    border-color: #F2F2F2;
+}
+
+.botaoNumero, .vazio{
+    background-color: #636363;
+}
+
+.botaoNumero:hover{
+    background-color: #a19d9d;
+}
+
+.botaoOperador:hover, #botaoIgual:hover{
+    background-color: #51eeff;
+}
+
+#botaoIgual, #apagaTudo,  .botaoOperador{
+    background-color: #04C4D9;
+    height: -webkit-fill-available;
+}
+
+#apagaTudo{
+    color: red;
+}
+
+#apagaTudo:hover{
+    background-color: #007683;
+}

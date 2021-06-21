@@ -1,0 +1,42 @@
+<!DOCTYPE html />
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+        <title>Cadê?</title>
+    </head>
+    
+    <body>
+        <div id="container">
+
+            <div id="address-form">
+                <h1>Cadastro de Endereço</h1>
+                <input class="required-field" type="text" name="postal-code" id="postal-code" placeholder="*CEP" />
+                <p class="required-message" id="postal-code-required">Insira um CEP válido.</p>
+                <input class="required-field" type="text" name="state" id="state" placeholder="*Estado" />
+                <input class="required-field" type="text" name="city" id="city" placeholder="*Cidade" />
+                <input class="required-field" type="text" name="street" id="street" placeholder="*Logradouro (rua, estrada, etc.)" />
+                <input class="required-field" type="text" name="number" id="number" placeholder="*Número" />
+                <input type="text" name="complement" id="complement" placeholder="Complemento" />
+                <button id="save">Salvar</button>
+                <p class="required-message" id="required">Campos marcados com * são obrigatórios!</p>
+            </div>
+            <div id="map"></div>
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+            crossorigin="anonymous">
+        </script>
+
+        <script src="script.js"></script>
+        
+    </body>
+</html>

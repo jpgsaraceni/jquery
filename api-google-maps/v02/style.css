@@ -1,0 +1,72 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+}
+
+body{
+    background-color: #CEDEF2;
+}
+
+input{
+    margin-left: 5px;
+    background-color: white;
+    border: solid;
+    border-width: thin;
+    border-radius: 5px;
+    border-color: #D7D7D9;
+    margin-top: 5px;
+}
+
+input:focus{
+    background-color: #CEDEF2;
+}
+
+input:disabled{
+    background-color: #dfdfdf;
+}
+
+.required-message{
+    display: none;
+    color: red;
+    margin: 0;
+    padding-left: 10px;
+}
+
+button{
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    background-color: #A7C8F2;
+    border-radius: 5px;
+    width: fit-content;
+    align-self: center;
+    border: solid;
+}
+
+#container{
+    margin: auto;
+    margin-top: 10%;
+}
+
+#address-form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 10px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px #A7C8F2;
+    border-radius: 2px;
+}
+
+#map{
+    position: absolute;
+    top: 5em;
+    right: 5em;
+}
+
+#address-map {
+    border: none;
+    height: 15em;
+    width: 15em;
+}

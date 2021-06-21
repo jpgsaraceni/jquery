@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Orbitron&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <title>Calculadora</title>
+    </head>
+
+    <body>
+
+        <div id="calculadora">
+
+            <div id="display">
+                <span class="displayDigit" id="display-digit11"> </span>
+                <span class="displayDigit" id="display-digit10"> </span>
+                <span class="displayDigit" id="display-digit9"> </span>
+                <span class="displayDigit" id="display-digit8"> </span>
+                <span class="displayDigit" id="display-digit7"> </span>
+                <span class="displayDigit" id="display-digit6"> </span>
+                <span class="displayDigit" id="display-digit5"> </span>
+                <span class="displayDigit" id="display-digit4"> </span>
+                <span class="displayDigit" id="display-digit3"> </span>
+                <span class="displayDigit" id="display-digit2"> </span>
+                <span class="displayDigit" id="display-digit1"> </span>
+                <span class="displayDigit" id="display-digit0"> </span>
+            </div>
+
+            <div id="teclas">
+        
+                <div id="secaoNumeros">
+                    <div class="linha">
+                        <button class="botaoNumero" id="digito7" value="7">7</button>
+                        <button class="botaoNumero" id="digito8" value="8">8</button>
+                        <button class="botaoNumero" id="digito9" value="9">9</button>
+                    </div>
+                    <div class="linha">
+                        <button class="botaoNumero" id="digito4" value="4">4</button>
+                        <button class="botaoNumero" id="digito5" value="5">5</button>
+                        <button class="botaoNumero" id="digito6" value="6">6</button>
+                    </div>
+                    <div class="linha">
+                        <button class="botaoNumero" id="digito1" value="1">1</button>
+                        <button class="botaoNumero" id="digito2" value="2">2</button>
+                        <button class="botaoNumero" id="digito3" value="3">3</button>
+                    </div>
+                    <div class="linha">
+                        <button class="botaoNumero" id="digito0" value="0">0</button>
+                        <button class="vazio" id="virgula"> </button>
+                        <button class="vazio" id="backspace"> </button>
+                    </div>
+                </div>
+        
+                <div id="secaoOperadores">
+                    <button class="botaoOperador" id="soma" value="+">+</button>
+                    <button class="botaoOperador" id="subtracao" value="-">-</button>
+                    <button class="botaoOperador" id="multiplicacao" value="x">x</button>
+                    <button class="botaoOperador" id="divisao" value="&#247;">&#247;</button>
+                </div>
+        
+                <div id="secaoFinalizar">
+                    <button id="apagaTudo">AC</button>
+                    <button id="botaoIgual">=</button>
+                </div>
+        
+            </div>
+    
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+            crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+
+    </body>
+</html>
