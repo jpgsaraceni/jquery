@@ -1,34 +1,31 @@
-$(document).ready(()=>{
+$(document).ready(() => {
+  let currenciesObject;
+  let selectedCurrency;
 
-    let currenciesObject;
-    let selectedCurrency;
+  $.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL', (data) => {
+    currenciesObject = data;
 
-    $.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL', function(data){
-        currenciesObject = data;
-
-        Object.keys(currenciesObject).forEach(currency => {
-            $('#quotation-menu').append(`
-                <option class="quotation" value='${currency}'>${currency}</option>`
-            );
-        });
-
+    Object.keys(currenciesObject).forEach((currency) => {
+      $('#quotation-menu').append(`
+                <option class="quotation" value='${currency}'>${currency}</option>`,);
     });
+  });
 
-    $('#quotation-menu').on('change', function(){
-        selectedCurrency = currenciesObject[$('#quotation-menu').val()];
-        let obtainedDate = new Date(selectedCurrency.create_date);
-        obtainedDate = obtainedDate.toLocaleString();
-        $('#quotation-info').html(
-            `<li>Cotação em  ${obtainedDate}: ${selectedCurrency.ask}</li>
+  $('#quotation-menu').on('change', () => {
+    selectedCurrency = currenciesObject[$('#quotation-menu').val()];
+    let obtainedDate = new Date(selectedCurrency.create_date);
+    obtainedDate = obtainedDate.toLocaleString();
+    $('#quotation-info').html(
+      `<li>Cotação em  ${obtainedDate}: ${selectedCurrency.ask}</li>
             <li>Valor mínimo: ${selectedCurrency.low}</li>
-            <li>Valor máximo: ${selectedCurrency.high}</li>`
-        );
-        let currentDate = new Date(Date.now());
-        let lastWeek = new Date(Date.parse(currentDate)-(1000*60*60*24*7)); 
-        let currentDateString = (currentDate.toISOString().slice(0,10));
-        let lastWeekString = (lastWeek.toISOString().slice(0,10));
+            <li>Valor máximo: ${selectedCurrency.high}</li>`,
+    );
+    const currentDate = new Date(Date.now());
+    const lastWeek = new Date(Date.parse(currentDate) - (1000 * 60 * 60 * 24 * 7));
+    const currentDateString = (currentDate.toISOString().slice(0, 10));
+    const lastWeekString = (lastWeek.toISOString().slice(0, 10));
 
-        $('#past-quotations').prepend(`
+    $('#past-quotations').prepend(`
             <p>Para exibir as cotações diárias de um determinado período, selecione a 
                 data de início e término desejados, e clique em "Obter histórico".
             </p>
@@ -39,30 +36,28 @@ $(document).ready(()=>{
             <button id="get-period-quotation">Obter histórico</button>
         `);
 
-        $('#get-period-quotation').click(function(){
-            let startDate = $('#start-date').val();
-            let endDate = $('#end-date').val();
-            let startDateAsNumber = Date.parse(startDate);
-            let endDateAsNumber = Date.parse(endDate);
-            let intervalDays = (endDateAsNumber-startDateAsNumber)/(1000*60*60*24);
-            startDate = startDate.replace(/-/g,'');
-            endDate = endDate.replace(/-/g,'');
-            $.get(`https://economia.awesomeapi.com.br/${selectedCurrency.code}-${selectedCurrency.codein}/${intervalDays}?start_date=${startDate}&end_date=${endDate}`, function(data){
-                $('#past-quotations-list').html(`
+    $('#get-period-quotation').click(() => {
+      let startDate = $('#start-date').val();
+      let endDate = $('#end-date').val();
+      const startDateAsNumber = Date.parse(startDate);
+      const endDateAsNumber = Date.parse(endDate);
+      const intervalDays = (endDateAsNumber - startDateAsNumber) / (1000 * 60 * 60 * 24);
+      startDate = startDate.replace(/-/g, '');
+      endDate = endDate.replace(/-/g, '');
+      $.get(`https://economia.awesomeapi.com.br/${selectedCurrency.code}-${selectedCurrency.codein}/${intervalDays}?start_date=${startDate}&end_date=${endDate}`, (data) => {
+        $('#past-quotations-list').html(`
                     <li> Cotação mais alta do período: ${data[0].high}</li>
                     <li> Cotação mais baixa do período: ${data[0].low}</li>
-                `)
-                let dateCount = startDateAsNumber;
-                data.forEach(element => {
-                    dateCount += 1000*60*60*24;
-                    elementDate = new Date(dateCount);
-                    $('#past-quotations-list').append(`
+                `);
+        let dateCount = startDateAsNumber;
+        data.forEach((element) => {
+          dateCount += 1000 * 60 * 60 * 24;
+          elementDate = new Date(dateCount);
+          $('#past-quotations-list').append(`
                         <li>Cotação em ${elementDate.toLocaleDateString()}: ${element.bid}</li>
-                    `)
-                });              
-            });           
+                    `);
         });
-
+      });
     });
-
-})
+  });
+});
